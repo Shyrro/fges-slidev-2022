@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.27.10",
+    "@slidev/theme-bricks": "^0.0.2",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "@types/node": "^16.11.7",
+    "path": "^0.12.7",
+    "slidev-theme-penguin": "^1.1.2",
+    "slidev-theme-vuetiful": "^0.1.0"
+  },
+  "name": "fges-slides-2022"
+}
