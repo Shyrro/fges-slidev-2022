@@ -57,6 +57,8 @@ layout: two-cols
 
 # Pourquoi un framework?
 
+<v-click>
+
 ### <i>Avant</i>
 
 <i>HTML</i>
@@ -76,9 +78,11 @@ input.addEventListener('change', (event) => {
   result.textContent += newValue;
 })
 ```
-
+</v-click>
 
 ::right::
+
+<v-after>
 
 #  <br>
 ### <i>Maintenant</i>
@@ -90,19 +94,22 @@ input.addEventListener('change', (event) => {
 <input class="name" v-model="result" />
 <p> {{ result }} </p>
 ```
-<!-- :class="$slidev.nav.clicks !== 5 ? 'slidev-vclick-hidden' : ''" -->
-<arrow v-if="$slidev.nav.clicks === 5" x1="550" y1="300" x2="650" y2="215" color="#564" width="3" arrowSize="0.5" />
+
+
 
 <i>Javascript</i>
 
 ```js {all|all|3|all}
 data() {
   return {
-    result,
+    result: '',
   }
 }
 ```
 
+<arrow v-click="9" x1="550" y1="300" x2="650" y2="215" color="#41b883" width="3" arrowSize="0,3" />
+
+</v-after>
 
 <style>
 pre {
@@ -111,42 +118,73 @@ pre {
 </style>
 
 ---
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+layout: two-cols
 ---
+# Les composants
+*Pour un code réutilisable*
+```html {all|2-5|7-17|19-21|all}
+<!-- MonComposant.vue -->
+<template>
+  <input class="myInput" v-model="result" />
+  <span> {{ result }} </span>
+</template>
 
-# Code
+<script>
+import { defineComponent } from 'vue';
 
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  role: string;
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id);
-  const newUser = { ...user, ...update };
-  saveUser(id, newUser);
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="0.5" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+export default defineComponent({
+  data() {
+    return {
+      result: '',
+    }
+  }
+})
+</script>
 
 <style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
+.myInput { background-color: gray; }
+</style>
+
+```
+
+::right::
+<v-click at="5">
+
+# <br>
+*Exemple*
+
+<MyComponent />
+
+
+<br>
+<br>
+<br>
+
+</v-click>
+
+<v-click at="6">
+
+## Et pour l'utiliser?
+
+```js
+<MonComposant />
+
+// ou
+
+<mon-composant />
+```
+
+##### On peut réutiliser ce composant ou on veut sans avoir besoin de réecrire sa logique et sa structure à chaque fois.
+
+</v-click>
+
+<style>
+pre {
+  @apply mr-5;
 }
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
+
+h2 {
+  @apply text-[#41b883]
 }
 </style>
 
