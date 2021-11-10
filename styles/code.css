@@ -1,8 +1,7 @@
 p > code {
-  @apply bg-[#22272E];
+  @apply bg-white dark:bg-[#22272e];
 }
 
 h1 {
-    @apply text-[#41b883]!important;
-  }
-  
+  @apply text-[#41b883]!important;
+}

@@ -8,7 +8,7 @@ export default defineWindiSetup(() => ({
 //   },
 shortcuts: {
     // custom the default background
-    'bg-main': 'bg-[#101924] text-[#ddd]',
+    'bg-main': 'bg-[#ddd] text-[#101924] dark:bg-[#1a283b] dark:text-[#ddd]',
   },
   theme: {
     extend: {
