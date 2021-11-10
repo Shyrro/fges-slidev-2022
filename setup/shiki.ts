@@ -6,7 +6,7 @@ export default defineShikiSetup(async ({ loadTheme }) => {
     // theme: await loadTheme(path.join(__dirname, './shiki-dark.json'))
     // theme: 'one-dark-pro'
     theme: {
-      dark: 'github-dark-dimmed',
+      dark: await loadTheme(path.join(__dirname, './shiki-dark.json')),
       light: await loadTheme(path.join(__dirname, './shiki-light.json'))
     }
   }
