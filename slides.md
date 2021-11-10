@@ -66,7 +66,8 @@ layout: two-cols
 ```
 <i>Javascript</i>
 
-```js
+
+```js {all|1|4,7|2,5-6|all}
 const input = document.querySelector('.name')
 const result = document.querySelector('.result')
 
@@ -89,15 +90,19 @@ input.addEventListener('change', (event) => {
 <input class="name" v-model="result" />
 <p> {{ result }} </p>
 ```
+<!-- :class="$slidev.nav.clicks !== 5 ? 'slidev-vclick-hidden' : ''" -->
+<arrow v-if="$slidev.nav.clicks === 5" x1="550" y1="300" x2="650" y2="215" color="#564" width="3" arrowSize="0.5" />
+
 <i>Javascript</i>
 
-```js
+```js {all|all|3|all}
 data() {
   return {
     result,
   }
 }
 ```
+
 
 <style>
 pre {
