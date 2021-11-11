@@ -15,5 +15,8 @@
     "slidev-theme-penguin": "^1.1.2",
     "slidev-theme-vuetiful": "^0.1.0"
   },
-  "name": "fges-slides-2022"
+  "name": "fges-slides-2022",
+  "devDependencies": {
+    "@iconify-json/uim": "^1.0.2"
+  }
 }

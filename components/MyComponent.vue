@@ -1,5 +1,5 @@
 <template>
-  <input v-if="$slidev.nav.clicks >= 5" class="myInput" v-model="result" placeholder="Tapez ici"/>
+  <input v-if="$slidev.nav.clicks >= 5 || show" class="myInput" v-model="result" placeholder="Tapez ici"/>
   <span> {{ result }} </span>
 </template>
 
@@ -7,6 +7,9 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  props: {
+    show: false,
+  },
   data() {
     return {
       result: '',

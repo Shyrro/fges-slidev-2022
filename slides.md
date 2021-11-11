@@ -253,6 +253,25 @@ h2 {
 
 ---
 
+# A vous de jouer ! 
+
+##
+
+En utilisant le template d'application Vue fourni, créez le composant de la slide précédente. <br>
+
+Ce composant contient une donnée `result` qui est liée à un `input` qui prend votre entrée et l'affiche dans un `span`.
+
+### 
+
+<br>
+
+<div class="w-full flex mt-10">
+  <uim-microscope class="text-10xl text-[#8be9ff] m-auto"/>
+</div>
+
+---
+
+
 # Components
 
 <div grid="~ cols-2 gap-4">
