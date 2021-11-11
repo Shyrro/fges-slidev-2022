@@ -21,6 +21,7 @@ drawings:
 
 layout: "center"
 counts: 0
+download: true
 ---
 
 <img class="m-auto w-30" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg">
@@ -116,6 +117,68 @@ pre {
   @apply mr-10;
 }
 </style>
+
+---
+layout: two-cols
+---
+
+# La philosophie Vue.js
+
+- DOM virtuel de composants 
+- Réutilisation simplifiée de logique à travers une App
+- Manipulation plus simple des interfaces (ou des "Vues")
+
+```html {all|4-6,14-16}
+<!-- DOM html -->
+<html>
+  <body>
+    <header>
+      Navbar
+    </header>
+    <div>
+      <form id="formulaireInscription">
+        <label for="name">Name</label>
+        <input name="name" />
+        ...
+      </form>
+    </div>
+    <footer>
+      Contact
+    </footer>
+  </body>
+</html>
+```
+
+::right::
+
+<div class="last-space"></div>
+
+```js {all|3,5}
+// DOM Vue
+<App>
+  <Layout theme="dark">
+    <FormulaireInscription />
+  </Layout>
+</App>
+```
+
+<style>
+  pre {
+    margin-right: 5px;
+  }
+  .slidev-layout {
+    font-size: 0.9rem;
+  }
+
+  .last-space {
+    margin-top: 133.5px;
+    margin-left: 5px;
+  }
+  li {
+    list-style: circle;
+  }
+</style>
+
 
 ---
 layout: two-cols

@@ -102,7 +102,7 @@ export default defineComponent({
   </div>
 </template>
 
-<style>
+<style scoped>
 li {
   list-style: none;
   padding: 0;
