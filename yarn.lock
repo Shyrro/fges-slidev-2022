@@ -98,6 +98,13 @@
   dependencies:
     "@iconify/types" "^1.0.10"
 
+"@iconify-json/uil@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@iconify-json/uil/-/uil-1.0.2.tgz#9e6145646067c5b8d02ee16de64acf0ecf64107d"
+  integrity sha512-ahNqblXeT4ULDAJgGdUcaLsHRdT+RdLfpRIPyw6RkfxgQmT0rqwgu3mtLHu3EktA3nrUY0QUjcB5JlHD37dNcg==
+  dependencies:
+    "@iconify/types" "^1.0.10"
+
 "@iconify-json/uim@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@iconify-json/uim/-/uim-1.0.2.tgz#d8e3339c835b54e0d14cbb046c4262abf16dd0fe"

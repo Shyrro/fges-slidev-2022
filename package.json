@@ -17,6 +17,7 @@
   },
   "name": "fges-slides-2022",
   "devDependencies": {
+    "@iconify-json/uil": "^1.0.2",
     "@iconify-json/uim": "^1.0.2"
   }
 }

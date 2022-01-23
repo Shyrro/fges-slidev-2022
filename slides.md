@@ -43,6 +43,7 @@ download: true
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
+
 ---
 
 # Pourquoi Vue.js ?
@@ -50,11 +51,9 @@ The last comment block of each slide will be treated as slide notes. It will be 
 <div v-click></div>
 <Frameworks />
 
-
-
 ---
-layout: two-cols
----
+
+## layout: two-cols
 
 # Pourquoi un framework?
 
@@ -63,29 +62,32 @@ layout: two-cols
 ### <i>Avant</i>
 
 <i>HTML</i>
+
 ```html
 <input class="name" value="" />
 <p class="result"></p>
 ```
+
 <i>Javascript</i>
 
-
 ```js {all|1|4,7|2,5-6|all}
-const input = document.querySelector('.name')
-const result = document.querySelector('.result')
+const input = document.querySelector(".name");
+const result = document.querySelector(".result");
 
-input.addEventListener('change', (event) => {
+input.addEventListener("change", (event) => {
   const newValue = event.target.value;
   result.textContent += newValue;
-})
+});
 ```
+
 </v-click>
 
 ::right::
 
 <v-after>
 
-#  <br>
+# <br>
+
 ### <i>Maintenant</i>
 
 <i>HTML</i>
@@ -93,10 +95,8 @@ input.addEventListener('change', (event) => {
 
 ```html
 <input class="name" v-model="result" />
-<p> {{ result }} </p>
+<p>{{ result }}</p>
 ```
-
-
 
 <i>Javascript</i>
 
@@ -119,12 +119,12 @@ pre {
 </style>
 
 ---
-layout: two-cols
----
+
+## layout: two-cols
 
 # La philosophie Vue.js
 
-- DOM virtuel de composants 
+- DOM virtuel de composants
 - Réutilisation simplifiée de logique à travers une App
 - Manipulation plus simple des interfaces (ou des "Vues")
 
@@ -132,9 +132,7 @@ layout: two-cols
 <!-- DOM html -->
 <html>
   <body>
-    <header>
-      Navbar
-    </header>
+    <header>Navbar</header>
     <div>
       <form id="formulaireInscription">
         <label for="name">Name</label>
@@ -142,9 +140,7 @@ layout: two-cols
         ...
       </form>
     </div>
-    <footer>
-      Contact
-    </footer>
+    <footer>Contact</footer>
   </body>
 </html>
 ```
@@ -179,12 +175,14 @@ layout: two-cols
   }
 </style>
 
+---
 
----
-layout: two-cols
----
+## layout: two-cols
+
 # Les composants
-*Pour un code réutilisable*
+
+_Pour un code réutilisable_
+
 ```html {all|2-5|7-17|19-21|all}
 <!-- MonComposant.vue -->
 <template>
@@ -193,31 +191,32 @@ layout: two-cols
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+  import { defineComponent } from "vue";
 
-export default defineComponent({
-  data() {
-    return {
-      result: '',
-    }
-  }
-})
+  export default defineComponent({
+    data() {
+      return {
+        result: "",
+      };
+    },
+  });
 </script>
 
 <style>
-.myInput { background-color: gray; }
+  .myInput {
+    background-color: gray;
+  }
 </style>
-
 ```
 
 ::right::
 <v-click at="5">
 
 # <br>
-*Exemple*
+
+_Exemple_
 
 <MyComponent />
-
 
 <br>
 <br>
@@ -253,7 +252,7 @@ h2 {
 
 ---
 
-# A vous de jouer ! 
+# A vous de jouer !
 
 ##
 
@@ -261,7 +260,7 @@ En utilisant le template d'application Vue fourni, créez le composant de la sli
 
 Ce composant contient une donnée `result` qui est liée à un `input` qui prend votre entrée et l'affiche dans un `span`.
 
-### 
+###
 
 <br>
 
@@ -271,67 +270,57 @@ Ce composant contient une donnée `result` qui est liée à un `input` qui prend
 
 ---
 
+# Communiquer avec un composant
 
-# Components
+##
 
-<div grid="~ cols-2 gap-4">
-<div>
+Deux types de communication :
 
-You can use Vue components directly inside your slides.
+- Parent <uil-arrow-right /> Enfant
+- Enfant <uil-arrow-right /> Parent
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+<div class="flex justify-center">
+  <img
+  class="w-100"
+    src="https://www.geeksleague.be/wp-content/uploads/2020/05/funny-communication-meme-300x203.jpg"
+  />
+</div>
+
+
+<style>
+li {
+  list-style: circle;
+}
+</style>
+
+---
+
+# Communication Parent-Enfant
+
+## Props
+
+Le composant : 
 
 ```html
-<Counter :count="10" />
+<template>
+  <span>{{ number }}</span>
+</template>
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  props: {
+    number: Number,
+  },
+});
+</script>
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
+L'appel depuis le parent :
 
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
+```js
+<MonComposant number="9"/>
 ```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
----
-
-## class: px-20
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
 
 ---
 
@@ -406,7 +395,13 @@ const final = {
 
 ---
 
+## layout: center
+
 # LaTeX
+
+## Latex test
+
+### Latext v3
 
 LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
 
