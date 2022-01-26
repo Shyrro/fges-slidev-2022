@@ -52,9 +52,8 @@ The last comment block of each slide will be treated as slide notes. It will be 
 <Frameworks />
 
 ---
-
-## layout: two-cols
-
+layout: two-cols
+---
 # Pourquoi un framework?
 
 <v-click>
@@ -119,8 +118,8 @@ pre {
 </style>
 
 ---
-
-## layout: two-cols
+layout: two-cols
+---
 
 # La philosophie Vue.js
 
@@ -176,9 +175,8 @@ pre {
 </style>
 
 ---
-
-## layout: two-cols
-
+layout: two-cols
+---
 # Les composants
 
 _Pour un code réutilisable_
@@ -203,9 +201,7 @@ _Pour un code réutilisable_
 </script>
 
 <style>
-  .myInput {
-    background-color: gray;
-  }
+  .myInput { background-color: gray; }
 </style>
 ```
 
@@ -269,6 +265,14 @@ Ce composant contient une donnée `result` qui est liée à un `input` qui prend
 </div>
 
 ---
+# Les options d'un composant
+
+- data
+- computed
+- methods
+
+
+---
 
 # Communiquer avec un composant
 
@@ -303,14 +307,15 @@ Le composant :
 
 ```html
 <template>
-  <span>{{ number }}</span>
+  <span>{{ numero }}</span>
 </template>
+
 <script>
 import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
-    number: Number,
+    numero: Number,
   },
 });
 </script>
@@ -319,13 +324,74 @@ export default defineComponent({
 L'appel depuis le parent :
 
 ```js
-<MonComposant number="9"/>
+<MonComposant numero="9"/>
+```
+---
+layout: two-cols
+---
+## Communication Enfant-Parent
+
+Events: 
+
+Dans l'enfant :
+
+```html
+<template>
+  <button @click="sendDataToParent(data)">
+    Alert parent
+  </button>
+</template>
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  emits: ['update-data'],
+  methods: {
+    sendDataToParent(data) {
+      this.$emit('update-data', data);
+    }
+  }
+});
+</script>
 ```
 
+::right::
+
+<div class="last-space"></div>
+
+Dans le parent : 
+
+```html
+<template>
+  <composant-enfant @updateData="handleChildData"/>
+</template>
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  methods: {
+    handleChildData(data) {
+      console.log(data);
+    }
+  }
+})
+</script>
+```
+
+<style>
+  pre {
+    margin-right: 5px;
+  }
+
+  .last-space {
+    margin-top: 92px;
+    margin-left: 5px;
+  }
+</style>
+
 ---
-
-## preload: false
-
+preload: false
+---
 # Animations
 
 Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
@@ -394,9 +460,8 @@ const final = {
 </div>
 
 ---
-
-## layout: center
-
+layout: center
+---
 # LaTeX
 
 ## Latex test
