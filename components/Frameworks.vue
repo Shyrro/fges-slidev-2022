@@ -76,7 +76,7 @@ export default defineComponent({
     </div>
     <div class="flex-1" ref="react">
       <img
-        class="w-full"
+        class="w-full p-15"
         src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
       />
     </div>

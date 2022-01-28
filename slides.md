@@ -131,7 +131,9 @@ layout: two-cols
 <!-- DOM html -->
 <html>
   <body>
-    <header>Navbar</header>
+    <header>
+      Navbar
+    </header>
     <div>
       <form id="formulaireInscription">
         <label for="name">Name</label>
@@ -139,7 +141,9 @@ layout: two-cols
         ...
       </form>
     </div>
-    <footer>Contact</footer>
+    <footer>
+      Contact
+    </footer>
   </body>
 </html>
 ```
@@ -263,6 +267,119 @@ Ce composant contient une donnée `result` qui est liée à un `input` qui prend
 <div class="w-full flex mt-10">
   <uim-microscope class="text-10xl text-[#8be9ff] m-auto"/>
 </div>
+---
+layout: two-cols
+---
+
+# Directives
+
+## _v-if_
+<br>
+
+```html {all|3,10|all}
+<template>
+  <input v-model="name">
+  <span v-if="name === 'bob'"> {{ name }} </span>
+</template>
+<script>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  data: () => {
+    return {
+      name: 'toto',
+    }
+  },
+})
+</script>
+```
+
+::right::
+<ReactiveInputExample vif />
+
+---
+layout: two-cols
+---
+
+# v-for
+##
+
+```html {all|3-5,13|all}
+<template>
+  <ul>
+    <li v-for="legume in legumes" :key="legume"> 
+      {{ legume }} 
+    </li>
+  </ul>
+</template>
+<script>
+import { defineComponent } from 'vue';
+export default defineComponent({
+  data: () => {
+    return {
+      legumes: ['tomate', 'oignon', 'carotte']
+    }
+  }
+});
+</script>
+```
+::right::
+
+<ReactiveInputExample vfor />
+
+---
+layout: two-cols
+---
+
+# v-on
+##
+
+```html
+<template>
+  <button v-on:click="counter++">Incrémenter</button>
+  <span> {{ counter }} </span>
+</template>
+```
+
+Syntaxe simplifiée (à utiliser):
+
+```html
+<template>
+  <button @click="counter++">Incrémenter</button>
+  <span> {{ counter }} </span>
+</template>
+```
+
+Script : 
+```js
+export default defineComponent({
+  data: () => {
+    return {
+      counter: 0,
+    }
+  }
+});
+```
+
+::right::
+
+<ReactiveInputExample von />
+---
+layout: default
+---
+
+# A vous !
+
+##
+
+Créez un composant qui contient : une liste de noms, un input et un bouton.
+
+1 - Au clic sur le bouton, ajouter le contenu de l'input dans la liste. <br>
+2 - Ajouter une condition sur la liste, pour ne l'afficher uniquement que lorsqu'elle contient 3 éléments.
+
+<div class="w-full flex mt-10">
+  <uil-brackets-curly class="text-10xl text-[#8be9ff] m-auto"/>
+</div>
+
 
 ---
 layout: default
@@ -271,12 +388,12 @@ layout: default
 ##
 
 - Options de données :
-  - data
+  - data 
   - computed
   - props
 
 - Options de mutations de données :
-  - methods
+  - methods 
 
 - Options de cycle de vie :
   - created
@@ -284,6 +401,11 @@ layout: default
   - setup
 
 _Il y en a d'autres, mais pour l'instant, on va se limiter à ceux là_
+---
+layout: default
+---
+# Computed
+
 ---
 
 # Communiquer avec un composant
