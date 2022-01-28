@@ -16,7 +16,7 @@ export default defineComponent({
       enter: {
         scale: 1,
         opacity: 1,
-      }
+      },
     };
 
     const angularMotion = useMotion(angular, initialConfig);
@@ -29,7 +29,7 @@ export default defineComponent({
       angularListMotion.apply(config);
       reactMotion.apply(config);
       reactListMotion.apply(config);
-    }
+    };
 
     return {
       apply,
@@ -43,15 +43,15 @@ export default defineComponent({
     "$slidev.nav.clicks": {
       handler: async function (clicks) {
         if (clicks === 0) {
-          this.apply('enter');
-        };
+          this.apply("enter");
+        }
 
         if (clicks === 1) {
           await this.apply({
             opacity: 0.2,
           });
           this.$slidev.nav.clicks = 0;
-        };
+        }
       },
       deep: true,
       immediate: true,
@@ -75,7 +75,10 @@ export default defineComponent({
       />
     </div>
     <div class="flex-1" ref="react">
-      <img class="w-full" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" />
+      <img
+        class="w-full"
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+      />
     </div>
   </div>
   <div class="w-auto flex text-center justify-items-center items-center">

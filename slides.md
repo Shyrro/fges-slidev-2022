@@ -265,13 +265,25 @@ Ce composant contient une donnée `result` qui est liée à un `input` qui prend
 </div>
 
 ---
+layout: default
+---
 # Les options d'un composant
+##
 
-- data
-- computed
-- methods
+- Options de données :
+  - data
+  - computed
+  - props
 
+- Options de mutations de données :
+  - methods
 
+- Options de cycle de vie :
+  - created
+  - mounted
+  - setup
+
+_Il y en a d'autres, mais pour l'instant, on va se limiter à ceux là_
 ---
 
 # Communiquer avec un composant
@@ -303,7 +315,7 @@ li {
 
 ## Props
 
-Le composant : 
+Le composant :
 
 ```html
 <template>
