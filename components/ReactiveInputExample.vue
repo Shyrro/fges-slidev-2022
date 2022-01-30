@@ -14,6 +14,11 @@
       <button @click="counter++">Incrémenter</button>
       <div>{{ counter }}</div>
     </div>
+    <div class="computed-example" v-if="computed">
+      <input v-model="nom" placeholder="nom"/>
+      <input v-model="prenom" placeholder="prenom"/>
+      <div>{{ fullName }}</div>
+    </div>
   </div>
 </template>
 <script>
@@ -24,6 +29,8 @@ export default defineComponent({
       name: 'toto',
       legumes: ['tomate', 'oignon', 'carotte'],
       counter: 0,
+      nom: '',
+      prenom: '',
     }
   },
   props: {
@@ -38,7 +45,16 @@ export default defineComponent({
     von: {
       type: Boolean,
       default: false,
-    }, 
+    },
+    computed: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  computed: {
+    fullName() {
+      return `${this.nom} ${this.prenom}`; 
+    }
   }
 });
 </script>
