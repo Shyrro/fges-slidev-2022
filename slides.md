@@ -443,6 +443,45 @@ export default defineComponent({
 <ReactiveInputExample computed />
 
 ---
+layout: default
+---
+
+# Methods
+
+##
+
+Tout simplement, des fonctions utilisables uniquement par le composant.
+
+```html {all|2,11,14-18|all}
+<template>
+  <button @click="increment">Incrémenter</button>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      counter: 0,
+    }
+  },
+  methods: {
+    increment() {
+      this.counter++;
+    }
+  }
+});
+</script>
+```
+
+---
+layout: center
+---
+
+# Communication
+
+---
 
 # Communiquer avec un composant
 
