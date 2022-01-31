@@ -367,6 +367,38 @@ export default defineComponent({
 ::right::
 
 <ReactiveInputExample von />
+
+---
+layout: default
+---
+
+# v-bind
+La base des directives, la must have
+
+Permet de lier une data à un élément du template.
+
+Exemple :
+
+```html
+<template>
+  <img v-bind:src="imgUrl">
+  <!-- ou plus simplement -->
+  <img :src="imgUrl">
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data: () => {
+    return {
+      imgUrl: 'https://...',
+    },
+  },
+})
+</script>
+```
+
 ---
 layout: default
 ---
@@ -597,5 +629,24 @@ export default defineComponent({
     margin-left: 5px;
   }
 </style>
+
+---
+layout: default
+---
+
+# Encore à vous
+##
+
+Créez un composant `Calculatrice`, qui contient un composant `EcranCalculatrice` permettant d'afficher le résultat de la calculatrice ainsi que les opérations.
+
+Créez également un composant `BoutonCalculatrice` qui contiendra soit un numéro soit un opérateur mathématique (+, -, /, *). Ce composant servira à créer le clavier de la calculatrice.
+
+Le composant devra donc implémenter la logique pour les deux cas et réaliser les bonnes actions en conséquence.
+
+
+<div class="w-full flex mt-10">
+  <uil-calculator class="text-10xl text-[#8be9ff] m-auto"/>
+</div>
+
 
 ---
