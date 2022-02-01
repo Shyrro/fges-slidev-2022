@@ -12,7 +12,6 @@
     "@slidev/theme-seriph": "*",
     "@types/node": "^16.11.7",
     "path": "^0.12.7",
-    "playwright-chromium": "^1.18.1",
     "slidev-theme-penguin": "^1.1.2",
     "slidev-theme-vuetiful": "^0.1.0"
   },
