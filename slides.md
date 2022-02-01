@@ -506,6 +506,32 @@ export default defineComponent({
 });
 </script>
 ```
+---
+layout: default
+---
+
+# Watchers
+Vue is watching you
+
+```js
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data: () => {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar',
+  },
+  watch: {
+    firstName: function (newVal) {
+      this.fullName = `${newVal} ${this.lastName}`;
+    },
+    lastName: function (newVal) {
+      this.fullName = `${this.firstName} ${newVal}`;
+    },
+  }
+})
+```
 
 ---
 layout: center
