@@ -676,4 +676,98 @@ Le composant devra donc implémenter la logique pour les deux cas et réaliser l
 
 
 ---
+layout: two-cols
+---
+
+# Routing
+
+##
+
+- Utilisation de `vue-router`
+- Permet de synchroniser les URL avec des composants
+- Gestion fine de la navigation grâce à des paramètres
+
+::right::
+
+
+<div class="w-full h-full flex mt-10 items-center">
+  <mdi-road-variant class="text-15xl text-[#8be9ff]"/>
+</div>
+
+---
+layout: two-cols
+---
+
+# Configuration de router
+
+##
+
+On crée  notre fichier de routing, `routing.js` : 
+
+``` js
+import { 
+  createRouter, 
+  createWebHistory 
+} from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import About from '../views/About.vue'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    { path: '/', component: HomeView },
+    { path: '/about', component: About }
+  ]
+})
+
+export default router
+```
+
+::right::
+
+<div class="last-space"></div>
+
+Dans le `main.js` de notre application : 
+
+```js
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+app.use(router)
+
+app.mount('#app')
+```
+
+Et dans votre `App.vue` :
+
+```html
+<template>
+  <RouterView />
+</template>
+```
+<style>
+  pre {
+    margin-right: 5px;
+  }
+
+  .last-space {
+    margin-top: 56px;
+    margin-left: 5px;
+  }
+</style>
+
+
+---
+layout: default
+---
+
+Et dans votre `App.vue` :
+
+```html
+<template>
+  <RouterView />
+</template>
+```
 ---
