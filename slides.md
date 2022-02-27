@@ -704,7 +704,7 @@ layout: two-cols
 
 On crée  notre fichier de routing, `routing.js` : 
 
-``` js
+```js {all|10-13|all}
 import { 
   createRouter, 
   createWebHistory 
@@ -841,6 +841,22 @@ export default {
 layout: default
 ---
 
+# On test !
+
+##
+
+Configurez votre application pour prendre deux routes, une route d'accueil et une route qui affichera un exercice des TP précédents de votre choix.
+
+Pour savoir comment ajouter un router sur votre application, regardez la section "Routing" du cours en ligne ;) 
+
+<div class="w-full flex items-center">
+  <mdi-road-variant class="text-15xl text-[#8be9ff] m-auto"/>
+</div>
+
+---
+layout: default
+---
+
 # API
 Link your app with the world
 
@@ -864,5 +880,44 @@ layout: default
 - DELETE : Pour **supprimer** des ressources
 
 _PS: Il existe encore d'autres verbes qu'on ne verra pas dans ce cours_
+
+---
+layout: default
+---
+
+# Et en Vue ?
+
+```js
+import axios from 'axios';
+
+axios.get('api')
+
+axios.post('api')
+
+// etc
+```
+
+---
+layout: default
+---
+
+# Petit tips !
+
+##
+
+Si vous voulez récupérer des données, faites le pendant la phase `mounted` de votre composant.
+
+Exemple :
+
+
+```js
+export default {
+  mounted() {
+    axios.get('api').then((resultat) => {
+      // faire ce dont on a besoin du resultat
+    })
+  }
+}
+```
 
 ---
