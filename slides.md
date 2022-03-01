@@ -674,6 +674,25 @@ Le composant devra donc implémenter la logique pour les deux cas et réaliser l
   <uil-calculator class="text-10xl text-[#8be9ff] m-auto"/>
 </div>
 
+---
+layout: two-cols
+---
+
+# Cycle de vie des composants
+
+- setup
+- created
+- mounted
+- updated
+
+::right::
+
+<div class="flex justify-center m-[-30px] p-0">
+  <img
+  class="w-100 h-130"
+    src="https://vuejs.org/assets/lifecycle.16e4c08e.png"
+  />
+</div>
 
 ---
 layout: two-cols
