@@ -91,6 +91,13 @@
   dependencies:
     "@iconify/types" "^1.0.10"
 
+"@iconify-json/ic@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@iconify-json/ic/-/ic-1.1.1.tgz#065f2e379754ff571a0dded7e5e8755e9fb508d3"
+  integrity sha512-HR2m3Rsel5Zp3T98Vsai+tw6ip7DKYq9xLUv3NXgZE0aSHlQw9MpQdzdW0xkdfZEnX8gfIOpW2XZy1p2YAwxSA==
+  dependencies:
+    "@iconify/types" "^1.0.12"
+
 "@iconify-json/mdi@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.0.tgz#e103720a64ee5ca6ff33a2b8b2f9d29cb00f62cf"

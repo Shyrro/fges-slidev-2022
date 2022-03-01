@@ -704,7 +704,7 @@ layout: two-cols
 
 On crée  notre fichier de routing, `routing.js` : 
 
-``` js
+```js {all|10-13|all}
 import { 
   createRouter, 
   createWebHistory 
@@ -715,8 +715,8 @@ import About from '../views/About.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', component: HomeView },
-    { path: '/about', component: About }
+    { path: '/', name: 'home', component: HomeView },
+    { path: '/about', name: 'about', component: About }
   ]
 })
 
@@ -747,9 +747,10 @@ Et dans votre `App.vue` :
   <RouterView />
 </template>
 ```
+
 <style>
   pre {
-    margin-right: 5px;
+    margin-right: 15px;
   }
 
   .last-space {
@@ -763,11 +764,160 @@ Et dans votre `App.vue` :
 layout: default
 ---
 
-Et dans votre `App.vue` :
+# Gestion de paramètres
+
+## Paramètres dans l'URL :
+
+
+```js
+const routes = [
+  { path: '/users/:id', component: User },
+]
+```
+<br/>
+
+## Paramètres en props du composant :
+
+```js
+const routes = [
+  // Le paramètre id dans l'URL va être passé comme props
+  // au composant User
+  // Par exemple : http:localhost/users/1 , va passer 1
+  // comme id au composant User
+  { path: '/users/:id', component: User, props: true },
+]
+```
+
+---
+layout: two-cols
+---
+
+# Liens de navigation
+
+## Dans le template
 
 ```html
-<template>
-  <RouterView />
-</template>
+<RouterLink to="/about">About</RouterLink>
 ```
+
+::right::
+<div class="last-space"></div>
+
+## Programmatiquement
+
+```js {all|5-9|11-15|all}
+export default {
+  ...,
+  methods: {
+    goToAboutState() {
+      // Pour naviguer avec le nom: 
+      this.$router.push({
+        name: 'about'
+        // On peut passer des paramètres ici
+      });
+
+      // Pour naviguer avec le path :
+      this.$router.push({
+        path: '/about'
+        // On peut passer des paramètres ici
+      });
+    },
+  },
+}
+```
+
+<style>
+  pre {
+    margin-right: 15px;
+  }
+
+  .last-space {
+    margin-top: 56px;
+    margin-left: 5px;
+  }
+</style>
+
+---
+layout: default
+---
+
+# On test !
+
+##
+
+Configurez votre application pour prendre deux routes, une route d'accueil et une route qui affichera un exercice des TP précédents de votre choix.
+
+Pour savoir comment ajouter un router sur votre application, regardez la section "Routing" du cours en ligne ;) 
+
+<div class="w-full flex items-center">
+  <mdi-road-variant class="text-15xl text-[#8be9ff] m-auto"/>
+</div>
+
+---
+layout: default
+---
+
+# API
+Link your app with the world
+
+<div class="w-full flex mt-10">  
+  <ic-round-public class="text-15xl text-[#8be9ff] m-auto"/>
+</div>
+
+---
+layout: default
+---
+
+# REST API
+
+## Les verbes REST à connaître :
+
+<br/>
+
+- GET : Pour **récupérer** des ressources
+- POST : Pour **créer** des ressources
+- PUT : Pour **mettre à jour** des ressources
+- DELETE : Pour **supprimer** des ressources
+
+_PS: Il existe encore d'autres verbes qu'on ne verra pas dans ce cours_
+
+---
+layout: default
+---
+
+# Et en Vue ?
+
+```js
+import axios from 'axios';
+
+axios.get('api')
+
+axios.post('api')
+
+// etc
+```
+
+---
+layout: default
+---
+
+# Petit tips !
+
+##
+
+Si vous voulez récupérer des données, faites le pendant la phase `mounted` de votre composant.
+
+Exemple :
+
+
+```js
+export default {
+  mounted() {
+    axios.get('api').then((resultat) => {
+      // faire ce dont on a besoin du resultat
+    })
+  }
+}
+```
+
 ---
