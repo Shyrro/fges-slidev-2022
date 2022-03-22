@@ -921,3 +921,46 @@ export default {
 ```
 
 ---
+layout: default
+---
+
+# Store
+Global state management
+
+
+<img src="https://vuejs.org/assets/prop-drilling.11201220.png" />
+
+---
+layout: default
+---
+
+- Installation de la librairie Vuex :
+
+```bash
+npm install vuex
+```
+
+- Configuration du store :
+
+```js
+import { createStore } from 'vuex';
+
+const store = createStore({
+  state() {
+    return {
+      counter: 0,
+    }
+  },
+  getters: {
+    getCounter: (state) => state.counter, 
+  },
+  mutations: {
+    setCounter(payload) {
+      state.counter = payload;
+    }
+  }
+});
+
+```
+
+---
