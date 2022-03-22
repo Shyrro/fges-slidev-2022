@@ -674,6 +674,25 @@ Le composant devra donc implémenter la logique pour les deux cas et réaliser l
   <uil-calculator class="text-10xl text-[#8be9ff] m-auto"/>
 </div>
 
+---
+layout: two-cols
+---
+
+# Cycle de vie des composants
+
+- setup
+- created
+- mounted
+- updated
+
+::right::
+
+<div class="flex justify-center m-[-30px] p-0">
+  <img
+  class="w-100 h-130"
+    src="https://vuejs.org/assets/lifecycle.16e4c08e.png"
+  />
+</div>
 
 ---
 layout: two-cols
@@ -931,7 +950,7 @@ Global state management
 <img src="https://vuejs.org/assets/prop-drilling.11201220.png" />
 
 ---
-layout: default
+layout: two-cols
 ---
 
 - Installation de la librairie Vuex :
@@ -944,7 +963,6 @@ npm install vuex
 
 ```js
 import { createStore } from 'vuex';
-
 const store = createStore({
   state() {
     return {
@@ -955,12 +973,49 @@ const store = createStore({
     getCounter: (state) => state.counter, 
   },
   mutations: {
-    setCounter(payload) {
+    setCounter(state, payload) {
       state.counter = payload;
     }
   }
 });
+```
+
+::right::
+
+- Ajout à l'app :
+```js
+import store from './store';
+
+const app = createApp(App);
+app.use(store);
 
 ```
 
+- Utilisation dans un composant :
+
+```js
+export default defineComponent({
+  computed: {
+    counter() {
+      return this.$store.getters.getCounter;
+    }
+  },
+  methods: {
+    incrementCounterByTwo() {
+      this.$store.commit('setCounter', 2);
+    }
+  }
+})
+```
+
+<style>
+  pre {
+    margin-right: 15px;
+  }
+
+  .last-space {
+    margin-top: 56px;
+    margin-left: 5px;
+  }
+</style>
 ---
